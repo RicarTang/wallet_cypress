@@ -1,0 +1,9 @@
+{
+    "walletList":".ml-5 > .inline-grid > .icon-ctn",
+    "walletManage":".text-text",
+    "identityManage":".text-text-500",
+    "deleteIdentityWallet":".text-error",
+    "alertConfirm":".dialog-error",
+    "verifyPassword":".bg-env > .text-subtext",
+    "verifyPasswordConfirm":".foot-btns > :nth-child(2)"
+}

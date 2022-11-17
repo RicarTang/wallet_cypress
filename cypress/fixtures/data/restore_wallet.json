@@ -1,0 +1,90 @@
+{
+    "restoreSuccess":{
+        "title":"restoreWallet Success",
+        "walletMnemonic":"front cushion afford loud hungry upset rich table delay steel margin lucky",
+        "walletIdentityName":"Tang",
+        "walletPassword":"12345678",
+        "walletPasswordRepeat":"12345678",
+        "passwordHint":"12345678"
+    },
+    "mnemonicOrderError":{
+        "title":"mnemonic顺序错误",
+        "walletMnemonic":"front cushion afford loud hungry upset rich table delay steel lucky margin",
+        "walletIdentityName":"Tang",
+        "walletPassword":"12345678",
+        "walletPasswordRepeat":"12345678",
+        "passwordHint":"12345678"
+    },
+    "mnemonicNotSpaceSeparation":{
+        "title":"mnemonic不是以空格分隔",
+        "walletMnemonic":"front;cushion;afford;loud;hungry;upset;rich;table;delay;steel;margin;lucky",
+        "walletIdentityName":"Tang",
+        "walletPassword":"12345678",
+        "walletPasswordRepeat":"12345678",
+        "passwordHint":"12345678"
+    },
+    "mnemonicError":{
+        "title":"mnemonic单词错误",
+        "walletMnemonic":"front cushion afford loud hungry upset rich table deldfay stedfel sdf lucsdfky",
+        "walletIdentityName":"Tang",
+        "walletPassword":"12345678",
+        "walletPasswordRepeat":"12345678",
+        "passwordHint":"12345678"
+    },
+    "identityNameGt12":{
+        "title":"identityName大于12位字符",
+        "walletMnemonic":"front cushion afford loud hungry upset rich table delay steel margin lucky",
+        "walletIdentityName":"Tangdsedsdsgd",
+        "walletPassword":"12345678",
+        "walletPasswordRepeat":"12345678",
+        "passwordHint":"12345678"
+    },
+    "identityNameIsSpace":{
+        "title":"identityName是空格字符串",
+        "walletMnemonic":"front cushion afford loud hungry upset rich table delay steel margin lucky",
+        "walletIdentityName":"       ",
+        "walletPassword":"12345678",
+        "walletPasswordRepeat":"12345678",
+        "passwordHint":"12345678"
+    },
+    "walletPasswordLt8": {
+        "title":"walletPassword小于8位字符",
+        "walletMnemonic":"front cushion afford loud hungry upset rich table delay steel margin lucky",
+        "walletIdentityName":"Tang",
+        "walletPassword":"1234567",
+        "walletPasswordRepeat":"1234567",
+        "passwordHint":"1234567"
+    },
+    "walletPasswordGt30":{
+        "title":"walletPassword大于30位字符",
+        "walletMnemonic":"front cushion afford loud hungry upset rich table delay steel margin lucky",
+        "walletIdentityName":"Tang",
+        "walletPassword":"vaEdvrQAYVLr}|cl~vlKMtI`wCwSIvq",
+        "walletPasswordRepeat":"vaEdvrQAYVLr}|cl~vlKMtI`wCwSIvq",
+        "passwordHint":"vaEdvrQAYVLr}|cl~vlKMtI`wCwSIvq"
+    },
+    "walletPasswordDiscord":{
+        "title":"walletPassword两次密码不一致",
+        "walletMnemonic":"front cushion afford loud hungry upset rich table delay steel margin lucky",
+        "walletIdentityName":"Tang",
+        "walletPassword":"12345678",
+        "walletPasswordRepeat":"123456789",
+        "passwordHint":"密码不一致   "
+    },
+    "walletPasswordIsSpace":{
+        "title":"walletPassword为空格字符",
+        "walletMnemonic":"front cushion afford loud hungry upset rich table delay steel margin lucky",
+        "walletIdentityName":"Tang",
+        "walletPassword":"        ",
+        "walletPasswordRepeat":"        ",
+        "passwordHint":"8位空格字符"
+    },
+    "passwordHintGt50":{
+        "title":"passwordHint大于50位字符",
+        "walletMnemonic":"front cushion afford loud hungry upset rich table delay steel margin lucky",
+        "walletIdentityName":"Tang",
+        "walletPassword":"12345678",
+        "walletPasswordRepeat":"12345678",
+        "passwordHint":"pwmxmIr]nEddib^]oldeaFoEZykD1ltTwICmzlpaUNdRISw]aqo"
+    }
+}

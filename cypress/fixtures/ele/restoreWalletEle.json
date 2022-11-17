@@ -1,0 +1,10 @@
+{
+    "restoreWallet":"._thin-border-primary",
+    "walletMnemonic":":nth-child(3) > .bg-env > .w-full",
+    "walletIdentityName":":nth-child(4) > .bg-env > .w-full",
+    "walletPassword":":nth-child(5) > :nth-child(2) > .w-full",
+    "walletPasswordRepeat":":nth-child(5) > .mt-2 > .w-full",
+    "walletPasswordHint":":nth-child(6) > .bg-env > .w-full",
+    "userAgreement":".mat-checkbox-inner-container",
+    "restoreWalletSubmit":"button[type='submit']"
+}

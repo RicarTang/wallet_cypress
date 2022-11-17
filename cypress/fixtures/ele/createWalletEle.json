@@ -1,0 +1,9 @@
+{
+    "createWallet":".bg-primary",
+    "walletName":":nth-child(2) > .bg-env > .w-full",
+    "walletPassword":"form.ng-untouched > :nth-child(3) > :nth-child(2) > .w-full",
+    "walletPasswordRepeat":".mt-2 > .w-full",
+    "walletPasswordHint":":nth-child(4) > .bg-env > .w-full",
+    "userAgreement":".mat-checkbox-inner-container",
+    "createWalletSubmit":"button[type='submit']"
+}

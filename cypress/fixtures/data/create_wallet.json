@@ -1,0 +1,61 @@
+{
+    "createSuccess":{
+        "title":"createWallet Success",
+        "walletName":"Tang",
+        "walletPassword":"12345678",
+        "walletPasswordRepeat":"12345678",
+        "passwordHint":"这是密码提示：12345678"
+    },
+    "walletNameGt12":{
+        "title":"WalletName大于12位",
+        "walletName":"safedsfedsfe3",
+        "walletPassword":"12345678",
+        "walletPasswordRepeat":"12345678",
+        "passwordHint":"这是密码提示：12345678"
+    },
+
+    "walletNameIsSpace":{
+        "title":"WalletName为空格字符",
+        "walletName":"      ",
+        "walletPassword":"12345678",
+        "walletPasswordRepeat":"12345678",
+        "passwordHint":"这是密码提示：12345678"
+    },
+    "walletPasswordLt8":{
+        "title":"walletPassword小于8位字符",
+        "walletName":"tang",
+        "walletPassword":"1234567",
+        "walletPasswordRepeat":"1234567",
+        "passwordHint":"这是密码提示：1234567"
+    },
+    "walletPasswordGt30":{
+        "title":"walletPassword大于30位字符",
+        "walletName":"tang",
+        "walletPassword":"vaEdvrQAYVLr}|cl~vlKMtI`wCwSIvq",
+        "walletPasswordRepeat":"vaEdvrQAYVLr}|cl~vlKMtI`wCwSIvq",
+        "passwordHint":"这是密码提示：vaEdvrQAYVLr}|cl~vlKMtI`wCwSIvq"
+    },
+    "walletPasswordDiscord":{
+        "title":"walletPassword两次密码不一致",
+        "walletName":"tang",
+        "walletPassword":"12345678",
+        "walletPasswordRepeat":"123456789",
+        "passwordHint":"这是密码提示："
+    },
+    "walletPasswordIsSpace":{
+        "title":"walletPassword密码是空格字符",
+        "walletName":"tang",
+        "walletPassword":"        ",
+        "walletPasswordRepeat":"        ",
+        "passwordHint":"这是密码提示：八个空格字符"
+    },
+    "walletPasswordHintGt50":{
+        "title":"passwordHint大于50位字符",
+        "walletName":"tang",
+        "walletPassword":"12345678",
+        "walletPasswordRepeat":"12345678",
+        "passwordHint":"pwmxmIr]nEddib^]oldeaFoEZykD1ltTwICmzlpaUNdRISw]aqo"
+    }
+
+    
+}
