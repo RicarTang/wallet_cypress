@@ -62,6 +62,6 @@ describe('Restore Wallet', () => {
 
 
     })
-    
+
 
 })

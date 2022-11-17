@@ -9,7 +9,7 @@ describe('Create Wallet', () => {
       cy.viewport(375, 780)
     })
     // 表单验证成功测试用例
-    it.skip(createWalletJson.createSuccess.title, () => {
+    it(createWalletJson.createSuccess.title, () => {
       cy.get(createWalletEle.createWallet).click()
       cy.url().should('contains','mnemonic-create-wallet')
       cy.get(createWalletEle.walletName).type(createWalletJson.createSuccess.walletName)
@@ -26,14 +26,14 @@ describe('Create Wallet', () => {
       if (i === 'createSuccess') {
         continue;
       } else {
-        it.skip(createWalletJson[i].title, () => {
+        it(createWalletJson[i].title, () => {
           cy.get(createWalletEle.createWallet).click()
           cy.url().should('contains','mnemonic-create-wallet')
           cy.get(createWalletEle.walletName).type(createWalletJson[i].walletName)
           cy.get(createWalletEle.walletPassword).type(createWalletJson[i].walletPassword)
           cy.get(createWalletEle.walletPasswordRepeat).type(createWalletJson[i].walletPasswordRepeat)
           cy.get(createWalletEle.walletPasswordHint).type(createWalletJson[i].passwordHint)
-          cy.get(createWalletEle.userAgent).click()
+          cy.get(createWalletEle.userAgreement).click()
           cy.get(createWalletEle.createWalletSubmit).should('be.disabled')
         })
       }
