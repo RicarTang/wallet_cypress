@@ -25,6 +25,8 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import restoreWalletJson from '../fixtures/data/restore_wallet.json'
 import restoreWalletEle from '../fixtures/ele/restoreWalletEle.json'
+import walletManageEle from "../fixtures/ele/walletManageEle.json";
+
 Cypress.Commands.add('restoreWallet', () => {
     cy.visit('/')
     cy.viewport(375, 780)
@@ -39,4 +41,17 @@ Cypress.Commands.add('restoreWallet', () => {
     cy.get(restoreWalletEle.restoreWalletSubmit).should('not.be.disabled').click()
     cy.url().should('contains', 'home')
 
+})
+
+Cypress.Commands.add('deleteIdentityWallet', () => {
+    cy.visit('/')
+    cy.url().should('contains','/home')
+    cy.viewport(375, 780)
+    cy.get(walletManageEle.walletList).click()
+    cy.get(walletManageEle.walletManage).click()
+    cy.get(walletManageEle.identityManage).click()
+    cy.get(walletManageEle.deleteIdentityWallet).click()
+    cy.get(walletManageEle.alertConfirm).click()
+    cy.get(walletManageEle.verifyPassword).type(restoreWalletJson.restoreSuccess.walletPassword)
+    cy.get(walletManageEle.verifyPasswordConfirm).click()
 })
