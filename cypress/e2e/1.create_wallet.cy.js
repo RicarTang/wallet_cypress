@@ -8,46 +8,84 @@ describe('Create Wallet', () => {
             cy.visit('/')
             cy.viewport(375, 780)
         })
-        // 表单验证成功测试用例
+        // 创建钱包成功测试用例
         it(createWalletJson.createSuccess.title, () => {
-            cy.get(createWalletEle.createWallet).click()
-            cy.url().should('contains', 'mnemonic-create-wallet')
-            cy.get(createWalletEle.walletName).type(createWalletJson.createSuccess.walletName)
-            cy.get(createWalletEle.walletPassword).type(createWalletJson.createSuccess.walletPassword)
-            cy.get(createWalletEle.walletPasswordRepeat).type(createWalletJson.createSuccess.walletPasswordRepeat)
-            cy.get(createWalletEle.walletPasswordHint).type(createWalletJson.createSuccess.passwordHint)
+            cy.createWalletForm(createWalletJson.createSuccess)
             cy.get(createWalletEle.userAgreement).click()
             cy.get(createWalletEle.createWalletSubmit).should('not.be.disabled').click()
             cy.url().should('contains', 'mnemonic-backup-tips')
 
         })
-        // 表单验证失败测试用例
-        for (const i in createWalletJson) {
-            if (i === 'createSuccess') {
-                continue;
-            } else {
-                it(createWalletJson[i].title, () => {
-                    cy.get(createWalletEle.createWallet).click()
-                    cy.url().should('contains', 'mnemonic-create-wallet')
-                    cy.get(createWalletEle.walletName).type(createWalletJson[i].walletName)
-                    cy.get(createWalletEle.walletPassword).type(createWalletJson[i].walletPassword)
-                    cy.get(createWalletEle.walletPasswordRepeat).type(createWalletJson[i].walletPasswordRepeat)
-                    cy.get(createWalletEle.walletPasswordHint).type(createWalletJson[i].passwordHint)
-                    cy.get(createWalletEle.userAgreement).click()
-                    cy.get(createWalletEle.createWalletSubmit).should('be.disabled')
-                })
-            }
-        }
-        it('不勾选用户协议', () => {
-            cy.get(createWalletEle.createWallet).click()
-            cy.url().should('contains', 'mnemonic-create-wallet')
-            cy.get(createWalletEle.walletName).type(createWalletJson.createSuccess.walletName)
-            cy.get(createWalletEle.walletPassword).type(createWalletJson.createSuccess.walletPassword)
-            cy.get(createWalletEle.walletPasswordRepeat).type(createWalletJson.createSuccess.walletPasswordRepeat)
-            cy.get(createWalletEle.walletPasswordHint).type(createWalletJson.createSuccess.passwordHint)
+
+        // WalletName大于12位字符
+        it(createWalletJson.walletNameGt12.title, () => {
+            cy.createWalletForm(createWalletJson.walletNameGt12)  // 填写表单信息
+            cy.get(createWalletEle.userAgreement).click()  // 选中用户协议
+            cy.get(createWalletEle.createWalletTextError.walletNameError).should(($text) => {
+                // 断言错误信息
+                expect($text.text()).to.eq(' The maximum length of the name is 12 ')
+            })
+            cy.get(createWalletEle.createWalletSubmit).should('be.disabled')  // 断言submit按钮状态
+        })
+        // WalletName为空格字符
+        it(createWalletJson.walletNameIsSpace.title, () => {
+            cy.createWalletForm(createWalletJson.walletNameIsSpace)
+            cy.get(createWalletEle.userAgreement).click()
+            cy.get(createWalletEle.createWalletTextError.walletNameError).should(($text) => {
+                expect($text.text()).to.eq(' Please enter wallet name ')
+            })
             cy.get(createWalletEle.createWalletSubmit).should('be.disabled')
         })
-
+        // walletPassword小于8位字符
+        it(createWalletJson.walletPasswordLt8.title, () => {
+            cy.createWalletForm(createWalletJson.walletPasswordLt8)
+            cy.get(createWalletEle.userAgreement).click()
+            cy.get(createWalletEle.createWalletTextError.walletPasswordError).should(($text) => {
+                expect($text.text()).to.eq(' The password is at least 8 characters long ')
+            })
+            cy.get(createWalletEle.createWalletSubmit).should('be.disabled')
+        })
+        // 不勾选用户协议
+        it('不勾选用户协议', () => {
+            cy.createWalletForm(createWalletJson.createSuccess)
+            cy.get(createWalletEle.createWalletSubmit).should('be.disabled')
+        })
+        // walletPassword大于30位字符
+        it(createWalletJson.walletPasswordGt30.title, () => {
+            cy.createWalletForm(createWalletJson.walletPasswordGt30)
+            cy.get(createWalletEle.userAgreement).click()
+            cy.get(createWalletEle.createWalletTextError.walletPasswordError).should(($text) => {
+                expect($text.text()).to.eq(' The maximum length of the password is 30 ')
+            })
+            cy.get(createWalletEle.createWalletSubmit).should('be.disabled')
+        })
+        // walletPassword两次密码不一致
+        it(createWalletJson.walletPasswordDiscord.title, () => {
+            cy.createWalletForm(createWalletJson.walletPasswordDiscord)
+            cy.get(createWalletEle.userAgreement).click()
+            cy.get(createWalletEle.createWalletTextError.walletPasswordError).should(($text) => {
+                expect($text.text()).to.eq(' Two inputs don\'t match! ')
+            })
+            cy.get(createWalletEle.createWalletSubmit).should('be.disabled')
+        })
+        // walletPassword密码是空格字符
+        it(createWalletJson.walletPasswordIsSpace.title, () => {
+            cy.createWalletForm(createWalletJson.walletPasswordIsSpace)
+            cy.get(createWalletEle.userAgreement).click()
+            cy.get(createWalletEle.createWalletTextError.walletPasswordError).should(($text) => {
+                expect($text.text()).to.eq(' The password cannot container spaces ! ')
+            })
+            cy.get(createWalletEle.createWalletSubmit).should('be.disabled')
+        })
+        // passwordHint大于50位字符
+        it(createWalletJson.walletPasswordHintGt50.title, () => {
+            cy.createWalletForm(createWalletJson.walletPasswordHintGt50)
+            cy.get(createWalletEle.userAgreement).click()
+            cy.get(createWalletEle.createWalletTextError.walletPasswordHintError).should(($text) => {
+                expect($text.text()).to.eq(' The maximum length of the hint is 50 ')
+            })
+            cy.get(createWalletEle.createWalletSubmit).should('be.disabled')
+        })
     })
 
 })

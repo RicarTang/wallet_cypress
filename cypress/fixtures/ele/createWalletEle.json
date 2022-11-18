@@ -1,9 +1,14 @@
 {
-    "createWallet":".bg-primary",
-    "walletName":":nth-child(2) > .bg-env > .w-full",
-    "walletPassword":"form.ng-untouched > :nth-child(3) > :nth-child(2) > .w-full",
-    "walletPasswordRepeat":".mt-2 > .w-full",
-    "walletPasswordHint":":nth-child(4) > .bg-env > .w-full",
-    "userAgreement":".mat-checkbox-inner-container",
-    "createWalletSubmit":"button[type='submit']"
+  "createWallet": ".bg-primary",
+  "walletName": ":nth-child(2) > .bg-env > .w-full",
+  "walletPassword": "form.ng-untouched > :nth-child(3) > :nth-child(2) > .w-full",
+  "walletPasswordRepeat": ".mt-2 > .w-full",
+  "walletPasswordHint": ":nth-child(4) > .bg-env > .w-full",
+  "userAgreement": ".mat-checkbox-inner-container",
+  "createWalletSubmit": "button[type='submit']",
+  "createWalletTextError":{
+          "walletNameError":":nth-child(2) > .mb-2 > .text-xss",
+          "walletPasswordError": ":nth-child(3) > .mb-2 > .text-xss",
+          "walletPasswordHintError": ".text-xss > .ng-star-inserted"
+  }
 }

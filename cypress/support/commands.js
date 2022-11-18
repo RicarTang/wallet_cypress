@@ -26,7 +26,19 @@
 import restoreWalletJson from '../fixtures/data/restore_wallet.json'
 import restoreWalletEle from '../fixtures/ele/restoreWalletEle.json'
 import walletManageEle from "../fixtures/ele/walletManageEle.json";
+import createWalletEle from "../fixtures/ele/createWalletEle.json";
+import createWalletJson from "../fixtures/data/create_wallet.json";
+// create wallet form
+Cypress.Commands.add('createWalletForm', (title) => {
+    cy.get(createWalletEle.createWallet).click()
+    cy.url().should('contains', 'mnemonic-create-wallet')
+    cy.get(createWalletEle.walletName).type(title.walletName)
+    cy.get(createWalletEle.walletPassword).type(title.walletPassword)
+    cy.get(createWalletEle.walletPasswordRepeat).type(title.walletPasswordRepeat)
+    cy.get(createWalletEle.walletPasswordHint).type(title.passwordHint)
+})
 
+// restore wallet
 Cypress.Commands.add('restoreWallet', () => {
     cy.visit('/')
     cy.viewport(375, 780)
@@ -42,10 +54,10 @@ Cypress.Commands.add('restoreWallet', () => {
     cy.url().should('contains', 'home')
 
 })
-
+// delete identity wallet
 Cypress.Commands.add('deleteIdentityWallet', () => {
     cy.visit('/')
-    cy.url().should('contains','/home')
+    cy.url().should('contains', '/home')
     cy.viewport(375, 780)
     cy.get(walletManageEle.walletList).click()
     cy.get(walletManageEle.walletManage).click()
@@ -55,3 +67,4 @@ Cypress.Commands.add('deleteIdentityWallet', () => {
     cy.get(walletManageEle.verifyPassword).type(restoreWalletJson.restoreSuccess.walletPassword)
     cy.get(walletManageEle.verifyPasswordConfirm).click()
 })
+
