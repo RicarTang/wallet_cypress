@@ -54,7 +54,7 @@ Cypress.Commands.add('restoreWallet', () => {
     cy.url().should('contains', 'home')
 
 })
-// delete identity wallet
+// delete identity wallet ??
 Cypress.Commands.add('deleteIdentityWallet', () => {
     cy.visit('/')
     cy.url().should('contains', '/home')
